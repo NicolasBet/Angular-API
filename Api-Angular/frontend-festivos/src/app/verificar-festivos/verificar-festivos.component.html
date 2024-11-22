@@ -1,0 +1,19 @@
+<h2>Verificar Festivo</h2>
+<form (ngSubmit)="verificarFestivo()">
+  <label for="fecha">Ingrese una fecha (YYYY-MM-DD):</label>
+  <input
+    type="text"
+    id="fecha"
+    [(ngModel)]="fecha"
+    name="fecha"
+    required
+    placeholder="2024-01-01"
+  />
+  <button type="submit">Verificar</button>
+</form>
+<div *ngIf="esFestivo !== null">
+  <p *ngIf="esFestivo; else noFestivo">🎉 ¡Es un día festivo!</p>
+  <ng-template #noFestivo>
+    <p>No es un día festivo.</p>
+  </ng-template>
+</div>
