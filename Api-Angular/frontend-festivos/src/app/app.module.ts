@@ -5,6 +5,7 @@ import { VerificarFestivosComponent } from './verificar-festivos/verificar-festi
 import { ListarFestivosComponent } from './listar-festivos/listar-festivos.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';  // Asegúrate de importar FormsModule
+import { HttpClientModule } from '@angular/common/http'; // Importar el módulo HttpClientModule
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';  // Asegúrate de importar FormsMo
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule,
   ],
   providers: [],

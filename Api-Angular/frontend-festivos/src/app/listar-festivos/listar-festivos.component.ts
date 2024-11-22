@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FestivosService } from '../services/festivos.service';
 
 @Component({
   selector: 'app-listar-festivos',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./listar-festivos.component.css']
 })
 export class ListarFestivosComponent implements OnInit {
-  festivos: { fecha: string; nombre: string }[] = []; // Lista de festivos
-  cargando: boolean = false; // Indicador de carga
+  festivos: any[] = [];
+  cargando: boolean = false; 
+
+  constructor(private festivosService: FestivosService) {}
 
   ngOnInit(): void {
     this.obtenerFestivos();
@@ -15,15 +18,16 @@ export class ListarFestivosComponent implements OnInit {
 
   obtenerFestivos() {
     this.cargando = true;
-
-    // Simulación de datos: reemplazar con una llamada al backend
-    setTimeout(() => {
-      this.festivos = [
-        { fecha: '2024-01-01', nombre: 'Año Nuevo' },
-        { fecha: '2024-04-07', nombre: 'Viernes Santo' },
-        { fecha: '2024-12-25', nombre: 'Navidad' },
-      ];
-      this.cargando = false;
-    }, 1000);
+    this.festivosService.obtenerFestivos().subscribe({
+      next: (data) => {
+        this.festivos = data;
+        this.cargando = false;
+      },
+      error: (err) => {
+        console.error('Error al obtener los festivos', err);
+        this.cargando = false;
+      }
+    });
   }
 }
+
