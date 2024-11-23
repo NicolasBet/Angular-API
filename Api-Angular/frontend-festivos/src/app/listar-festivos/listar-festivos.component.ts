@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Importar CommonModule
+import { CommonModule } from '@angular/common'; 
 import { FestivosService } from '../services/festivos.service';
 
 @Component({
   selector: 'app-listar-festivos',
   standalone: true,
-  imports: [CommonModule], // Agregar CommonModule a los imports
+  imports: [CommonModule], 
   templateUrl: './listar-festivos.component.html',
   styleUrls: ['./listar-festivos.component.css']
 })

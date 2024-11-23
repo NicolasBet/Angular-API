@@ -1,23 +1,23 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common'; // Importar CommonModule
+import { CommonModule } from '@angular/common'; 
 import { FestivosService } from '../services/festivos.service';
 
 @Component({
   selector: 'app-verificar-festivos',
   standalone: true,
-  imports: [FormsModule, CommonModule], // Agregar CommonModule a los imports
+  imports: [FormsModule, CommonModule], 
   templateUrl: './verificar-festivos.component.html',
   styleUrls: ['./verificar-festivos.component.css']
 })
 export class VerificarFestivosComponent {
-  fecha: string = ''; // Fecha ingresada por el usuario
-  resultado: string = ''; // Resultado del backend
+  fecha: string = ''; 
+  resultado: string = ''; 
 
   constructor(private festivosService: FestivosService) {}
 
   verificarFestivo() {
-    console.log('Fecha ingresada:', this.fecha); // Log para verificar la entrada
+    console.log('Fecha ingresada:', this.fecha); 
     if (!this.fecha) {
       this.resultado = 'Por favor, ingrese una fecha válida.';
       return;
@@ -25,11 +25,11 @@ export class VerificarFestivosComponent {
   
     this.festivosService.verificarFechaFestiva(this.fecha).subscribe(
       (respuesta) => {
-        console.log('Respuesta del backend:', respuesta); // Log para la respuesta exitosa
+        console.log('Respuesta del backend:', respuesta);
         this.resultado = respuesta.mensaje;
       },
       (error) => {
-        console.error('Error del backend:', error); // Log para errores
+        console.error('Error del backend:', error); 
         this.resultado = 'La fecha ingresada no es festiva o hubo un error.';
       }
     );

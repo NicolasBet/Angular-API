@@ -3,6 +3,6 @@ export interface Festivo {
     nombre: string;
     dia: number;
     mes: number;
-    diasPascua?: number; // Opcional, en caso de que no siempre lo envíe el backend
-    idTipo?: number; // Opcional, si la API lo incluye
+    diasPascua?: number; 
+    idTipo?: number; 
   }

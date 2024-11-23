@@ -1,7 +1,7 @@
 import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';  // Asegúrate de tener esta importación
-import { provideHttpClient } from '@angular/common/http';  // Si usas httpClient en otros servicios
-import { CommonModule } from '@angular/common';  // Importar CommonModule si es necesario
+import { provideRouter } from '@angular/router';  
+import { provideHttpClient } from '@angular/common/http';  
+import { CommonModule } from '@angular/common';  
 import { VerificarFestivosComponent } from './verificar-festivos/verificar-festivos.component';
 import { ListarFestivosComponent } from './listar-festivos/listar-festivos.component';
 

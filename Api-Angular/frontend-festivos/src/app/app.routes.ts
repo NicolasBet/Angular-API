@@ -4,6 +4,6 @@ import { ListarFestivosComponent } from './listar-festivos/listar-festivos.compo
 
 export const routes: Routes = [
   { path: 'verificar-festivo', component: VerificarFestivosComponent },
-  { path: 'listar-festivos', component: ListarFestivosComponent }, // Nueva ruta
-  { path: '', redirectTo: '/verificar-festivo', pathMatch: 'full' }, // Redirección por defecto
+  { path: 'listar-festivos', component: ListarFestivosComponent }, 
+  { path: '', redirectTo: '/verificar-festivo', pathMatch: 'full' }, 
 ];
