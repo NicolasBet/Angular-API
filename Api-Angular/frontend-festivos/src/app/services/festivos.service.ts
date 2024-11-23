@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FestivosService {
-  private apiUrl = 'http://localhost:5179/api/FestivoControlador'; // URL base de la API
+  private apiUrl = 'https://localhost:7281/api/FestivoControlador';
 
   constructor(private http: HttpClient) {}
 

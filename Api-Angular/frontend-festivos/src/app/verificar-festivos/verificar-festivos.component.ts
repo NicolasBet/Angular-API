@@ -17,19 +17,23 @@ export class VerificarFestivosComponent {
   constructor(private festivosService: FestivosService) {}
 
   verificarFestivo() {
+    console.log('Fecha ingresada:', this.fecha); // Log para verificar la entrada
     if (!this.fecha) {
       this.resultado = 'Por favor, ingrese una fecha válida.';
       return;
     }
-
+  
     this.festivosService.verificarFechaFestiva(this.fecha).subscribe(
       (respuesta) => {
+        console.log('Respuesta del backend:', respuesta); // Log para la respuesta exitosa
         this.resultado = respuesta.mensaje;
       },
       (error) => {
-        console.error(error);
+        console.error('Error del backend:', error); // Log para errores
         this.resultado = 'La fecha ingresada no es festiva o hubo un error.';
       }
     );
   }
+  
+  
 }
