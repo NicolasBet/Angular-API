@@ -4,13 +4,13 @@ import { VerificarFestivosComponent } from './verificar-festivos/verificar-festi
 import { ListarFestivosComponent } from './listar-festivos/listar-festivos.component';
 
 const routes: Routes = [
-  { path: 'verificar-festivos', component: VerificarFestivosComponent },
+  { path: '', redirectTo: 'listar-festivos', pathMatch: 'full' },
   { path: 'listar-festivos', component: ListarFestivosComponent },
-  { path: '', redirectTo: 'verificar-festivos', pathMatch: 'full' },
+  { path: 'verificar-festivos', component: VerificarFestivosComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

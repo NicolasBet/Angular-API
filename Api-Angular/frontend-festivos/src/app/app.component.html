@@ -1,7 +1,16 @@
-<nav>
-  <ul>
-    <li><a routerLink="/verificar-festivos">Verificar Festivo</a></li>
-    <li><a routerLink="/listar-festivos">Listar Festivos</a></li>
-  </ul>
-</nav>
+<h1>Consulta de Festivos</h1>
+<div style="text-align: center; margin-top: 20px;">
+  <button 
+    style="margin-right: 10px; padding: 10px 20px;" 
+    (click)="navegarA('verificar-festivos')">
+    Verificar Festivo
+  </button>
+
+  <button 
+    style="padding: 10px 20px;" 
+    (click)="navegarA('listar-festivos')">
+    Listar Festivos
+  </button>
+</div>
+
 <router-outlet></router-outlet>

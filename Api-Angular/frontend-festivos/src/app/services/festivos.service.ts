@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FestivosService {
-  private apiUrl = 'https://localhost:7281/api/FestivoControlador';
+  private apiUrl = 'http://localhost:5179/api/FestivoControlador'; // URL base de la API
 
   constructor(private http: HttpClient) {}
 
@@ -16,17 +16,7 @@ export class FestivosService {
   }
 
   // Verificar si una fecha es festiva
-  verificarFechaFestiva(fecha: string): Observable<boolean> {
-    return this.http.get<boolean>(`${this.apiUrl}/${fecha}`);
-  }
-
-  // Agregar un nuevo festivo
-  agregarFestivo(nuevoFestivo: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}`, nuevoFestivo);
-  }
-
-  // Eliminar un festivo por fecha
-  eliminarFestivo(fecha: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${fecha}`);
+  verificarFechaFestiva(fecha: string): Observable<{ mensaje: string }> {
+    return this.http.get<{ mensaje: string }>(`${this.apiUrl}/${fecha}`);
   }
 }

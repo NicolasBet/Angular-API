@@ -1,33 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common'; // Importar CommonModule
 import { FestivosService } from '../services/festivos.service';
 
 @Component({
   selector: 'app-listar-festivos',
+  standalone: true,
+  imports: [CommonModule], // Agregar CommonModule a los imports
   templateUrl: './listar-festivos.component.html',
   styleUrls: ['./listar-festivos.component.css']
 })
-export class ListarFestivosComponent implements OnInit {
-  festivos: any[] = [];
-  cargando: boolean = false; 
+export class ListarFestivosComponent {
+  festivos: any[] = []; // Lista de festivos
 
   constructor(private festivosService: FestivosService) {}
 
-  ngOnInit(): void {
-    this.obtenerFestivos();
-  }
-
-  obtenerFestivos() {
-    this.cargando = true;
-    this.festivosService.obtenerFestivos().subscribe({
-      next: (data) => {
-        this.festivos = data;
-        this.cargando = false;
+  ngOnInit() {
+    this.festivosService.obtenerFestivos().subscribe(
+      (resultado) => {
+        this.festivos = resultado;
       },
-      error: (err) => {
-        console.error('Error al obtener los festivos', err);
-        this.cargando = false;
+      (error) => {
+        console.error('Error al obtener los festivos:', error);
       }
-    });
+    );
   }
 }
-

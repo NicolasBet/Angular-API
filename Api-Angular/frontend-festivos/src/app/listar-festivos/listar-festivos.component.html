@@ -1,26 +1,18 @@
 <h2>Lista de Festivos</h2>
-
-<div *ngIf="cargando">
-  <p>Cargando festivos...</p>
-</div>
-
-<div *ngIf="!cargando && festivos.length > 0">
-  <table>
-    <thead>
-      <tr>
-        <th>Fecha</th>
-        <th>Nombre</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let festivo of festivos">
-        <td>{{ festivo.fecha }}</td>
-        <td>{{ festivo.nombre }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<div *ngIf="!cargando && festivos.length === 0">
-  <p>No hay festivos disponibles.</p>
+<table *ngIf="festivos.length > 0" border="1" style="width: 100%; margin-top: 20px;">
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Nombre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let festivo of festivos">
+      <td>{{ festivo.dia }}/{{ festivo.mes }}</td>
+      <td>{{ festivo.nombre }}</td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="festivos.length === 0" style="margin-top: 20px;">
+  No hay festivos disponibles.
 </div>

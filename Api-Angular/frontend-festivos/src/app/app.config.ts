@@ -1,15 +1,17 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
-import { provideHttpClient } from '@angular/common/http'; // Importa el HttpClient
-import { provideClientHydration } from '@angular/platform-browser';
-
-import { routes } from './app.routes'; // Importa las rutas definidas en app.routes.ts
+import { ApplicationConfig } from '@angular/core';
+import { provideRouter } from '@angular/router';  // Asegúrate de tener esta importación
+import { provideHttpClient } from '@angular/common/http';  // Si usas httpClient en otros servicios
+import { CommonModule } from '@angular/common';  // Importar CommonModule si es necesario
+import { VerificarFestivosComponent } from './verificar-festivos/verificar-festivos.component';
+import { ListarFestivosComponent } from './listar-festivos/listar-festivos.component';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }), // Mejora el rendimiento al consolidar eventos
-    provideRouter(routes), // Proveedor para enrutamiento
-    provideHttpClient(), // Proveedor para el cliente HTTP
-    provideClientHydration() // Proveedor para la hidratación del cliente
-  ],
+    provideHttpClient(),
+    provideRouter([
+      { path: '', redirectTo: 'verificar-festivos', pathMatch: 'full' },
+      { path: 'verificar-festivos', component: VerificarFestivosComponent },
+      { path: 'listar-festivos', component: ListarFestivosComponent }
+    ])
+  ]
 };

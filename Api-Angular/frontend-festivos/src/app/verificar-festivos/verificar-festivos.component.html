@@ -6,14 +6,9 @@
     id="fecha"
     [(ngModel)]="fecha"
     name="fecha"
-    required
     placeholder="2024-01-01"
+    required
   />
-  <button type="submit">Verificar</button>
+  <button type="submit">Buscar</button>
 </form>
-<div *ngIf="esFestivo !== null">
-  <p *ngIf="esFestivo; else noFestivo">🎉 ¡Es un día festivo!</p>
-  <ng-template #noFestivo>
-    <p>No es un día festivo.</p>
-  </ng-template>
-</div>
+<p>{{ resultado }}</p>
